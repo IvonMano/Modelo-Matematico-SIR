@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   // ========================
   // 1. TEMA CLARO/OSCURO
@@ -6,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
+  
   themeToggle.addEventListener('click', () => {
     const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', cur);
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const finalI = document.getElementById('finalI');
   const veredictBox = document.getElementById('veredictText');
 
-  const fileVideo = document.getElementById('fileVideo');
   const localVideo = document.getElementById('localVideo');
 
   // Infografía modal
@@ -67,9 +66,36 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       labels: [],
       datasets: [
-        { label: 'S', data: [], borderColor: '#2563eb', borderWidth: 2, tension: 0.25, pointRadius: 0 },
-        { label: 'I', data: [], borderColor: '#ef4444', borderWidth: 2, tension: 0.25, pointRadius: 0 },
-        { label: 'R', data: [], borderColor: '#059669', borderWidth: 2, tension: 0.25, pointRadius: 0 }
+        { 
+          label: 'Susceptibles (S)', 
+          data: [], 
+          borderColor: '#3b82f6', 
+          backgroundColor: 'rgba(59, 130, 246, 0.1)',
+          borderWidth: 3, 
+          tension: 0.4, 
+          pointRadius: 0,
+          fill: true
+        },
+        { 
+          label: 'Infectados (I)', 
+          data: [], 
+          borderColor: '#ef4444', 
+          backgroundColor: 'rgba(239, 68, 68, 0.1)',
+          borderWidth: 3, 
+          tension: 0.4, 
+          pointRadius: 0,
+          fill: true
+        },
+        { 
+          label: 'Recuperados (R)', 
+          data: [], 
+          borderColor: '#10b981', 
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          borderWidth: 3, 
+          tension: 0.4, 
+          pointRadius: 0,
+          fill: true
+        }
       ]
     },
     options: {
@@ -77,37 +103,63 @@ document.addEventListener('DOMContentLoaded', () => {
       maintainAspectRatio: false,
       interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: { labels: { color: 'var(--text)' } },
+        legend: { 
+          labels: { 
+            color: 'var(--text)',
+            font: {
+              family: 'Inter',
+              size: 14,
+              weight: '600'
+            },
+            padding: 20
+          } 
+        },
         tooltip: {
           backgroundColor: (ctx) => {
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
-            return theme === 'dark' ? '#f3f4f6' : '#111';
+            return theme === 'dark' ? '#1f2937' : '#ffffff';
           },
           titleColor: (ctx) => {
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
-            return theme === 'dark' ? '#111' : '#fff';
+            return theme === 'dark' ? '#f3f4f6' : '#111827';
           },
           bodyColor: (ctx) => {
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
-            return theme === 'dark' ? '#111' : '#fff';
+            return theme === 'dark' ? '#e5e7eb' : '#374151';
           },
           borderColor: (ctx) => {
             const theme = document.documentElement.getAttribute('data-theme') || 'light';
-            return theme === 'dark' ? '#ddd' : '#333';
+            return theme === 'dark' ? '#374151' : '#e5e7eb';
           },
-          borderWidth: 1.2,
-          titleFont: { weight: '700' },
-          bodyFont: { weight: '500' },
-          cornerRadius: 6,
-          padding: 10,
+          borderWidth: 1,
+          titleFont: { weight: '700', family: 'Inter' },
+          bodyFont: { weight: '500', family: 'Inter' },
+          cornerRadius: 12,
+          padding: 12,
           callbacks: {
             label: (ctx) => `${ctx.dataset.label}: ${Math.round(ctx.parsed.y)}`
           }
         }
       },
       scales: {
-        x: { ticks: { color: 'var(--muted)' } },
-        y: { ticks: { color: 'var(--muted)' } }
+        x: { 
+          ticks: { 
+            color: 'var(--muted)',
+            font: { family: 'Inter', weight: '500' }
+          },
+          grid: {
+            color: 'var(--border)'
+          }
+        },
+        y: { 
+          ticks: { 
+            color: 'var(--muted)',
+            font: { family: 'Inter', weight: '500' }
+          },
+          grid: {
+            color: 'var(--border)'
+          }
+        }
       }
     },
     plugins: [{
@@ -130,38 +182,40 @@ document.addEventListener('DOMContentLoaded', () => {
         // Colores según tema
         const theme = document.documentElement.getAttribute('data-theme') || 'light';
         const dark = theme === 'dark';
-        const boxColor = dark ? '#f9fafb' : '#111';
-        const textColor = dark ? '#111' : '#fff';
-        const circleColor = dark ? '#fff' : '#111';
-        const circleBorder = dark ? '#111' : '#fff';
+        const boxColor = dark ? '#1f2937' : '#ffffff';
+        const textColor = dark ? '#f3f4f6' : '#111827';
+        const circleColor = '#ef4444';
+        const circleBorder = '#ffffff';
 
         ctx.save();
         // círculo del pico
         ctx.beginPath();
         ctx.fillStyle = circleColor;
         ctx.strokeStyle = circleBorder;
-        ctx.lineWidth = 2;
-        ctx.arc(x, y, 7, 0, Math.PI * 2);
+        ctx.lineWidth = 3;
+        ctx.arc(x, y, 8, 0, Math.PI * 2);
         ctx.fill();
         ctx.stroke();
 
         // caja del texto
         const label = `Pico: ${Math.round(max)} — t=${chart.data.labels[idx]}`;
-        ctx.font = '600 12px Montserrat';
-        const pad = 8;
+        ctx.font = '600 13px Inter';
+        const pad = 12;
         const tw = ctx.measureText(label).width;
         const bw = tw + pad * 2;
-        const bh = 24;
+        const bh = 28;
         let bx = x - bw / 2;
         if (bx + bw > chart.width - 10) bx = chart.width - bw - 10;
         if (bx < 10) bx = 10;
-        let by = y - bh - 12;
-        if (by < 10) by = y + 12;
+        let by = y - bh - 15;
+        if (by < 10) by = y + 15;
 
         // fondo redondeado
         ctx.fillStyle = boxColor;
+        ctx.strokeStyle = 'var(--border)';
+        ctx.lineWidth = 1;
         ctx.beginPath();
-        const r = 6;
+        const r = 8;
         ctx.moveTo(bx + r, by);
         ctx.arcTo(bx + bw, by, bx + bw, by + bh, r);
         ctx.arcTo(bx + bw, by + bh, bx, by + bh, r);
@@ -169,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.arcTo(bx, by, bx + bw, by, r);
         ctx.closePath();
         ctx.fill();
+        ctx.stroke();
 
         // texto centrado
         ctx.fillStyle = textColor;
@@ -229,25 +284,31 @@ document.addEventListener('DOMContentLoaded', () => {
     chart.data.datasets[0].data = data.S;
     chart.data.datasets[1].data = data.I;
     chart.data.datasets[2].data = data.R;
-    chart.data.datasets = chart.data.datasets.filter(ds => ['S', 'I', 'R'].includes(ds.label));
+    chart.data.datasets = chart.data.datasets.filter(ds => ['Susceptibles (S)', 'Infectados (I)', 'Recuperados (R)'].includes(ds.label));
 
     const inter = findIntersections(data);
     intersectList.innerHTML = '';
     if (inter.length === 0) {
-      intersectList.innerHTML = '<li>No se detectaron intersecciones en el rango.</li>';
+      intersectList.innerHTML = '<li style="color: var(--muted); font-style: italic;">No se detectaron intersecciones en el rango.</li>';
     } else {
       inter.forEach(it => {
         const li = document.createElement('li');
-        li.textContent = `${it.pair} — t = ${it.t.toFixed(1)} días — ≈ ${it.value} individuos`;
+        li.innerHTML = `<strong>${it.pair}</strong> — t = ${it.t.toFixed(1)} días — ≈ ${it.value} individuos`;
+        li.style.marginBottom = '8px';
+        li.style.padding = '8px';
+        li.style.background = 'var(--gradient-soft)';
+        li.style.borderRadius = '8px';
+        li.style.borderLeft = '3px solid var(--primary-orange)';
         intersectList.appendChild(li);
       });
       chart.data.datasets.push({
-        label: 'Intersección',
+        label: 'Intersecciones',
         data: inter.map(it => ({ x: it.t, y: it.value })),
         type: 'scatter',
-        pointRadius: 5,
-        pointBackgroundColor: '#111',
-        pointBorderColor: '#fff',
+        pointRadius: 8,
+        pointBackgroundColor: '#ff6b35',
+        pointBorderColor: '#ffffff',
+        pointBorderWidth: 2,
         order: 99
       });
     }
@@ -264,22 +325,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let verdictHTML = '';
     if (R0 < 1) {
-      verdictHTML += `<div style="background:#d1fae5;color:#065f46;padding:10px;border-radius:8px;font-weight:700">✅ Brote controlado — R₀ = ${R0.toFixed(2)}</div>`;
-      verdictHTML += `<p style="margin-top:8px;color:var(--muted)">Cada infectado contagia a menos de una persona. La epidemia tiende a desaparecer. Mantener vigilancia sanitaria.</p>`;
+      verdictHTML += `<div style="background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #065f46; padding: 16px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; border-left: 4px solid #10b981;">✅ Brote controlado — R₀ = ${R0.toFixed(2)}</div>`;
+      verdictHTML += `<p style="color: var(--muted); line-height: 1.6;">Cada infectado contagia a menos de una persona. La epidemia tiende a desaparecer. Mantener vigilancia sanitaria.</p>`;
     } else if (R0 >= 1 && R0 < 2) {
-      verdictHTML += `<div style="background:#fef9c3;color:#92400e;padding:10px;border-radius:8px;font-weight:700">⚠️ Propagación moderada — R₀ = ${R0.toFixed(2)}</div>`;
-      verdictHTML += `<p style="margin-top:8px;color:var(--muted)">Cada infectado contagia a unas ${R0.toFixed(2)} personas. La epidemia se mantiene activa. Reforzar medidas preventivas.</p>`;
+      verdictHTML += `<div style="background: linear-gradient(135deg, #fef3c7, #fde68a); color: #92400e; padding: 16px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; border-left: 4px solid #f59e0b;">⚠️ Propagación moderada — R₀ = ${R0.toFixed(2)}</div>`;
+      verdictHTML += `<p style="color: var(--muted); line-height: 1.6;">Cada infectado contagia a unas ${R0.toFixed(2)} personas. La epidemia se mantiene activa. Reforzar medidas preventivas.</p>`;
     } else {
-      verdictHTML += `<div style="background:#fee2e2;color:#991b1b;padding:10px;border-radius:8px;font-weight:700">🚨 Alta propagación — R₀ = ${R0.toFixed(2)}</div>`;
-      verdictHTML += `<p style="margin-top:8px;color:var(--muted)">Alta transmisión. Se espera un pico significativo. Implementar medidas urgentes de contención y vacunación.</p>`;
+      verdictHTML += `<div style="background: linear-gradient(135deg, #fee2e2, #fecaca); color: #991b1b; padding: 16px; border-radius: 12px; font-weight: 700; margin-bottom: 12px; border-left: 4px solid #ef4444;">🚨 Alta propagación — R₀ = ${R0.toFixed(2)}</div>`;
+      verdictHTML += `<p style="color: var(--muted); line-height: 1.6;">Alta transmisión. Se espera un pico significativo. Implementar medidas urgentes de contención y vacunación.</p>`;
     }
 
-    verdictHTML += `<hr style="margin:10px 0;border:none;border-top:1px solid #ddd">`;
-    verdictHTML += `<p style="font-size:0.9rem;color:var(--muted)"><strong>Indicadores:</strong></p>
-    <ul style="margin-left:18px;color:var(--muted);font-size:0.9rem">
-      <li><strong>Pico de Infectados:</strong> momento de máxima presión sanitaria.</li>
-      <li><strong>% Recuperados finales:</strong> proporción de la población que habrá superado la infección.</li>
-    </ul>`;
+    verdictHTML += `<hr style="margin: 16px 0; border: none; border-top: 1px solid var(--border);">`;
+    verdictHTML += `<div style="font-size: 0.95rem; color: var(--muted);">
+      <p style="font-weight: 600; margin-bottom: 8px;">📊 Indicadores clave:</p>
+      <ul style="margin-left: 20px; line-height: 1.6;">
+        <li><strong>Pico de Infectados:</strong> momento de máxima presión sanitaria</li>
+        <li><strong>% Recuperados finales:</strong> proporción de la población que habrá superado la infección</li>
+      </ul>
+    </div>`;
     veredictBox.innerHTML = verdictHTML;
   }
 
@@ -310,18 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ========================
-  // 8. VIDEO LOCAL
-  // ========================
-  fileVideo.addEventListener('change', (e) => {
-    const f = e.target.files && e.target.files[0];
-    if (!f) return;
-    const url = URL.createObjectURL(f);
-    localVideo.src = url;
-    localVideo.play().catch(()=>{});
-  });
-
-// ========================
-  // 9. MODAL INFOGRAFÍA CON ZOOM
+  // 8. MODAL INFOGRAFÍA CON ZOOM
   // ========================
   if (btnShowInfografia && infografiaModal && closeInfografia) {
     const modalImg = infografiaModal.querySelector('img');
@@ -393,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================
-  // 10. EXPORTAR A EXCEL
+  // 9. EXPORTAR A EXCEL
   // ========================
   btnExportXLSX.addEventListener('click', () => {
     if (!chart.data.labels || chart.data.labels.length === 0) {
@@ -405,62 +457,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const I = chart.data.datasets[1].data;
     const R = chart.data.datasets[2].data;
 
-    const ws_data = [['t', 'S', 'I', 'R']];
+    const ws_data = [['Tiempo (días)', 'Susceptibles', 'Infectados', 'Recuperados']];
     for (let i = 0; i < labels.length; i++) {
       ws_data.push([labels[i], Math.round(S[i]), Math.round(I[i]), Math.round(R[i])]);
     }
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.aoa_to_sheet(ws_data);
-    XLSX.utils.book_append_sheet(wb, ws, 'SIR');
+    XLSX.utils.book_append_sheet(wb, ws, 'Simulación SIR');
     const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
     const blob = new Blob([wbout], { type: 'application/octet-stream' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `sir_simulation_${Date.now()}.xlsx`;
+    a.download = `simulacion_sir_${Date.now()}.xlsx`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   });
 
-});
-// Desplazamiento suave personalizado
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const destino = document.querySelector(this.getAttribute('href'));
-    if (destino) {
-      destino.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+  // ========================
+  // 10. SCROLL SUAVE
+  // ========================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const destino = document.querySelector(this.getAttribute('href'));
+      if (destino) {
+        destino.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // ========================
+  // 11. HEADER SCROLL EFFECT
+  // ========================
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 50) {
+      header.style.background = 'rgba(255, 255, 255, 0.98)';
+      header.style.boxShadow = '0 4px 20px rgba(255, 107, 53, 0.1)';
+    } else {
+      header.style.background = 'rgba(255, 255, 255, 0.95)';
+      header.style.boxShadow = 'none';
     }
   });
-});
-// Efecto header moderno al hacer scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if(window.scrollY > 20){
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-const btnShowInfografia = document.getElementById('btnShowInfografia');
-const infografiaModal = document.getElementById('infografiaModal');
-const closeInfografia = document.getElementById('closeInfografia');
 
-btnShowInfografia.addEventListener('click', () => {
-    infografiaModal.style.display = 'flex';
-});
-
-closeInfografia.addEventListener('click', () => {
-    infografiaModal.style.display = 'none';
-});
-
-infografiaModal.addEventListener('click', (e) => {
-    if (e.target === infografiaModal) {
-        infografiaModal.style.display = 'none';
-    }
 });

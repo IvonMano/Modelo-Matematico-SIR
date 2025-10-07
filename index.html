@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>MODELO MATEMÁTICO EPIDEMIOLÓGICO SIR</title>
     <!-- Fuentes e íconos (CDN) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Chart.js -->
@@ -14,15 +14,11 @@
     <!-- SheetJS para exportar XLSX -->
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <!-- MathJax para ecuaciones LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="styles.css" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 
     <style>
-        /* Scroll suave para navegación interna */
         html {
             scroll-behavior: smooth;
         }
@@ -31,31 +27,58 @@
 
 <body>
     
-<section class="banner">
-  <div class="banner-content">
-    <div class="banner-text">
-      <h1>Simulación <br>Epidemiológica SIR</h1>
-      <p>Explora cómo se propagan las enfermedades mediante un modelo matemático interactivo.</p>
-      <a href="#simulacion"><button class="banner-btn" >Ver Simulación</button></a>
-    </div>
-    <div class="banner-image">
-    </div>
-  </div>
-  <div class="banner-shape"></div>
-</section>
-
+    <!-- BANNER PRINCIPAL CON ESTILO LLAMACREATIVA -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-virus"></i>
+                    <span>Nos alegra que estés aquí</span>
+                </div>
+                <h1>¿Buscas un modelo <br><span class="highlight">matemático epidemiológico</span>?</h1>
+                <p>En SIR Simulator <strong>diseñamos y construimos,</strong> nuestro objetivo es que tu experiencia sea intuitiva,entretenida y educativa desde el primer momento</p>
+                
+                <div class="hero-buttons">
+                    <a href="#simulacion" class="btn-primary">
+                        <i class="fas fa-play"></i>
+                        Simulación
+                    </a>
+                    <a href="#video-infografia" class="btn-secondary">
+                        <i class="fas fa-video"></i>
+                        Videos
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-shape"></div>
+                <div class="hero-icons">
+                    <div class="floating-icon icon-1"><i class="fas fa-chart-line"></i></div>
+                    <div class="floating-icon icon-2"><i class="fas fa-microscope"></i></div>
+                    <div class="floating-icon icon-3"><i class="fas fa-calculator"></i></div>
+                    <div class="floating-icon icon-4"><i class="fas fa-flask"></i></div>
+                    <div class="floating-icon icon-5"><i class="fas fa-virus"></i></div>
+                    <img src="images/z1.png" alt="Imagen sobre fondo naranja" class="imagen-sobre-fondo">
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Formas decorativas -->
+        <div class="shape-blob shape-1"></div>
+        <div class="shape-blob shape-2"></div>
+    </section>
 
     <!-- HEADER ELEGANTE FIJO -->
     <header class="header">
-       <div class="header-logo">
-    <img src="images/LOGOPAG.jpg" alt="Logo SIR" class="header-logo-img">
-    <span></span>
-</div>
-
+        <div class="header-logo">
+            <img src="images/LOGOPAG.jpg" alt="Logo SIR" class="header-logo-img">
+            <span>SIR Simulator</span>
+        </div>
 
         <nav class="header-nav">
             <a href="#inicio"><i class="fa-solid fa-house"></i> Inicio</a>
-            <a href="#simulacion"><i class="fa-solid fa-flask"></i> Simulación</a>
+          <a href="https://uvadoc.uva.es/bitstream/handle/10324/63170/TFG-G6586.pdf?sequence=1&isAllowed=y" target="_blank"><i class="fa-solid fa-flask"></i> Artículo</a>
             <a href="#video-infografia"><i class="fa-solid fa-video"></i> Video e Infografía</a>
         </nav>
 
@@ -67,10 +90,40 @@
     </header>
 
     <main class="container">
+        
+        <!-- SECCIÓN DE SERVICIOS ESTILO LLAMACREATIVA -->
+        <section class="services-section">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Analizamos...</h3>
+                    <p>Analizamos el modelo para comprender cómo se comporta la dinámica de la población en diferentes escenarios</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Ofrecemos...</h3>
+                    <p>Ofrecemos interpretaciones claras y visualizaciones de los resultados del modelo</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Trabajamos...</h3>
+                    <p>Trabajamos en la implementación práctica del modelo mediante simulaciones interactivas y contenido multimedia. Creamos videos y recursos visuales que hacen que el aprendizaje del modelo sea más entretenido y fácil de comprender</p>
+                </div>
+            </div>
+        </section>
+
         <!-- INTRO: descripción + ecuaciones (MathJax) -->
         <section id="video-infografia" class="intro card">
             <div class="intro-left">
-                <h2><i class="fa-solid fa-microscope"></i>Descripción</h2>
+                <h2><i class="fa-solid fa-microscope"></i>Descripción del Modelo SIR</h2>
                 <p class="lead">
                     El modelo SIR estima la dinámica de una epidemia dividiendo la población en Susceptibles (S),
                     Infectados (I) y Recuperados (R). Permite estimar cómo varía el número de susceptibles en el tiempo.
@@ -92,77 +145,70 @@
             </div>
 
             <!-- Video y botón Infografía -->
-           <div class="video-small card">
-  <div class="video-head"><i class="ri-video-line"></i> Video</div>
-  <video id="localVideo" controls>
-      <source src="images/INTRO1.mp4" type="video/mp4">
-      Tu navegador no soporta la reproducción de videos.
-  </video>
+            <div class="video-small card">
+                <div class="video-head"><i class="ri-video-line"></i> Video</div>
+                <video id="localVideo" controls>
+                    <source src="images/INTRO1.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
 
-  <div style="display:flex;gap:8px;margin-top:8px;">
-      <button id="btnShowInfografia" class="btn outline small"><i class="ri-image-line"></i> Ver infografía</button>
-  </div>
-
-  <!-- Botones sociales debajo -->
-  <div class="social-links">
-    <a href="https://youtu.be/GT4pemq6mjE" target="_blank" class="social-btn">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
-    </a>
-    <a href="https://vm.tiktok.com/ZMAHjqkCX/" target="_blank" class="social-btn">
-      <img src="https://thumbs.dreamstime.com/b/tiktok-white-simple-vector-llano-iconos-de-medios-sociales-logo-s%C3%B3lido-pictograma-negro-aislado-en-fondo-172975178.jpg" alt="TikTok">
-    </a>
-  </div>
-</div>
-
-<style>
-  .social-links {
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* espacio entre iconos */
-  }
-
-  .social-links a img {
-    width: 50px;      /* tamaño más grande */
-    height: 50px;
-    border-radius: 50%;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-  }
-
-  .social-links a img:hover {
-    transform: scale(1.2);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  }
-</style>
-
-
+                <div style="display:flex;gap:8px;margin-top:8px;">
+                    <button id="btnShowInfografia" class="btn-outline small"><i class="ri-image-line"></i> Ver infografía</button>
                 </div>
+
+                <!-- Botones sociales debajo -->
+                <div class="social-links">
+                    <a href="https://youtu.be/XTXHO4ldB0E" target="_blank" class="social-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube">
+                    </a>
+                    <a href="https://vm.tiktok.com/ZMAHjqkCX/" target="_blank" class="social-btn">
+                        <img src="https://thumbs.dreamstime.com/b/tiktok-white-simple-vector-llano-iconos-de-medios-sociales-logo-s%C3%B3lido-pictograma-negro-aislado-en-fondo-172975178.jpg" alt="TikTok">
+                    </a>
+                </div>
+                <p class="video-description">
+    Video explicativo: Modelo SIR de forma divertida.
+    En este video, mostramos cómo funciona el modelo SIR de manera más llamativa: hemos reemplazado a la categoría de Infectados (I) con Z de Zombies, representando a los individuos contagiados. 
+    Esta versión creativa permite visualizar la propagación de manera entretenida y entender mejor las dinámicas del modelo.
+</p>
+
             </div>
+            
         </section>
 
         <!-- SIMULACIÓN: controles, gráfico, intersecciones y resultados -->
         <section id="simulacion" class="sim-section">
             <div class="controls card">
-                <h3><i class="ri-slideshow-line"></i> Parámetros</h3>
-                <label>β (Transmisión): <span id="betaVal">0.30</span></label>
-                <input id="beta" type="range" min="0" max="1.5" step="0.01" value="0.30">
-                <label>γ (Recuperación): <span id="gammaVal">0.10</span></label>
-                <input id="gamma" type="range" min="0.01" max="1" step="0.01" value="0.10">
-                <label>Población N: <span id="NVal">1000</span></label>
-                <input id="N" type="range" min="100" max="50000" step="100" value="1000">
-                <label>I₀ (Inicial infectados): <span id="I0Val">1</span></label>
-                <input id="I0" type="range" min="0" max="500" step="1" value="1">
-                <label>Días de simulación: <span id="daysVal">160</span></label>
-                <input id="days" type="range" min="10" max="1000" step="10" value="160">
-                <div class="actions">
-                    <button id="btnSimulate" class="btn primary"><i class="fa-solid fa-play"></i> Simular</button>
-                    <button id="btnReset" class="btn outline"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+                <h3><i class="ri-slideshow-line"></i> Parámetros de Simulación</h3>
+                <div class="param-group">
+                    <label>β (Transmisión): <span id="betaVal">0.30</span></label>
+                    <input id="beta" type="range" min="0" max="1.5" step="0.01" value="0.30">
                 </div>
+                <div class="param-group">
+                    <label>γ (Recuperación): <span id="gammaVal">0.10</span></label>
+                    <input id="gamma" type="range" min="0.01" max="1" step="0.01" value="0.10">
+                </div>
+                <div class="param-group">
+                    <label>Población N: <span id="NVal">1000</span></label>
+                    <input id="N" type="range" min="100" max="50000" step="100" value="1000">
+                </div>
+                <div class="param-group">
+                    <label>I₀ (Inicial infectados): <span id="I0Val">1</span></label>
+                    <input id="I0" type="range" min="0" max="500" step="1" value="1">
+                </div>
+                <div class="param-group">
+                    <label>Días de simulación: <span id="daysVal">160</span></label>
+                    <input id="days" type="range" min="10" max="1000" step="10" value="160">
+                </div>
+                
+                <div class="actions">
+                    <button id="btnSimulate" class="btn-primary"><i class="fa-solid fa-play"></i> Simular</button>
+                    <button id="btnReset" class="btn-outline"><i class="fa-solid fa-rotate-left"></i> Reiniciar</button>
+                </div>
+                <img src="images/Z2.png" alt=" " class=" ">
             </div>
 
             <div class="chart-card card">
-                <h3><i class="ri-line-chart-line"></i> Resultados</h3>
+                <h3><i class="ri-line-chart-line"></i> Resultados de la Simulación</h3>
                 <div class="chart-area"><canvas id="sirChart"></canvas></div>
                 <div class="below-chart">
                     <div class="intersections card mini">
@@ -176,68 +222,116 @@
                             <div>Pico Infectados: <strong id="peakI">-</strong></div>
                             <div>% Recuperados finales: <strong id="finalI">-</strong></div>
                         </div>
-                        <div class="veredict card" id="veredictText" style="margin-top:8px;padding:8px;background:rgba(0,0,0,0.03);">
+                        <div class="veredict card" id="veredictText">
                             — 
                         </div>
-                        <div class="excel-export" style="margin-top:10px;">
-                            <button id="btnExportXLSX" class="btn excel"><i class="ri-file-excel-2-line"></i> Exportar Excel</button>
+                        <div class="excel-export">
+                            <button id="btnExportXLSX" class="btn-success"><i class="ri-file-excel-2-line"></i> Exportar Excel</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <!-- Modal / Lightbox para la infografía -->
-    <!-- Modal / Lightbox para la infografía -->
-    <div id="infografiaModal" class="modal" aria-hidden="true">
-        <button id="closeInfografia" class="close" style="position:fixed;top:20px;right:30px;background:rgba(255,255,255,0.9);border:none;border-radius:50%;width:40px;height:40px;font-size:24px;cursor:pointer;z-index:1001;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-            <i class="ri-close-line"></i>
-        </button>
-        <img src="images/Infografía.png" alt="Infografía SIR" style="max-width:95vw;max-height:95vh;width:auto;height:auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.6);">
+        <!-- CARRUSEL DE IMÁGENES INTERACTIVO -->
+        <section class="image-carousel card">
+    <h3>Casos de uso en la vida real...</h3>
+    <div class="carousel-container">
+        <div class="carousel-item">
+            <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/28-12-2020-SG-New-Year-Message.jpg/image1170x530cropped.jpg" alt="COVID-19">
+            <div class="carousel-content">
+                <h4>COVID-19</h4>
+                <p class="desc">Durante la pandemia de COVID-19 (2020-2022), se utilizó el modelo SIR para modelar la propagación del SARS-CoV-2 en distintos países y regiones.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://ciencia.unam.mx/uploads/textos/ar_influenza_invernal_01_25092020.jpg" alt="Influenza">
+            <div class="carousel-content">
+                <h4>Influenza Estacional</h4>
+                <p class="desc">En la influenza estacional, el modelo SIR se aplicó para predecir la propagación de la gripe en ciudades y regiones</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDDQBE7bKr1U4iqh1dqRl9m-mZK1fByHNFRg&s" alt="Ébola">
+            <div class="carousel-content">
+                <h4>Epidemia de Ébola</h4>
+                <p class="desc">Durante la epidemia de Ébola en África Occidental (2014-2016), el modelo SIR permitió modelar cómo se propagaba el virus.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="https://comunidadblogger.net/wp-content/uploads/2022/08/latin-and-african-american-friends-sharing-social-2022-01-24-22-40-48-utc-min.jpg" alt="Redes Sociales">
+            <div class="carousel-content">
+                <h4>Redes Sociales</h4>
+                <p class="desc">En la difusión de información en redes sociales, se adaptó el modelo SIR para tratar la información como un "virus".</p>
+            </div>
+        </div>
     </div>
-    <!-- CARRUSEL DE IMÁGENES INTERACTIVO -->
-<section class="image-carousel card">
-  <h3 style="font-family: 'arial', cursive; color: var(--primary); margin-bottom:12px;">Casos de uso en la vida real...</h3>
-  <div class="carousel-container">
-    <div class="carousel-item">
-      <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production+Library/28-12-2020-SG-New-Year-Message.jpg/image1170x530cropped.jpg" alt="COVID-19">
-      <p class="desc">Durante la pandemia de COVID-19 (2020-2022), se utilizó el modelo SIR para modelar la propagación del SARS-CoV-2 en distintos países y regiones, con el objetivo de predecir el número de infectados y recuperados, estimar la necesidad de camas hospitalarias y evaluar el impacto de medidas de mitigación como cuarentenas o vacunación; muchos estudios epidemiológicos usaron versiones extendidas del modelo, como SEIR, para pronosticar brotes</p>
-    </div>
-    <div class="carousel-item">
-      <img src="https://ciencia.unam.mx/uploads/textos/ar_influenza_invernal_01_25092020.jpg" alt="Gripe">
-      <p class="desc">Influenza estacional En la influenza estacional, el modelo SIR se aplicó para predecir la propagación de la gripe en ciudades y regiones, ayudando a los sistemas de salud a planificar campañas de vacunación y recursos médicos; en Estados Unidos y Europa, los CDC y ECDC han usado este enfoque para anticipar picos de influenza y optimizar la preparación sanitaria.</p>
-    </div>
-    <div class="carousel-item">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDDQBE7bKr1U4iqh1dqRl9m-mZK1fByHNFRg&s" alt="Intervenciones COVID-19">
-      <p class="desc">Epidemia de Ébola en África Occidental (2014-2016) Durante la epidemia de Ébola en África Occidental (2014-2016), el modelo SIR permitió modelar cómo se propagaba el virus entre la población susceptible, infectada y recuperada o fallecida, con el objetivo de estimar la rapidez de contagio y la efectividad de intervenciones como cuarentenas y seguimiento de contactos, lo que facilitó la priorización de recursos médicos en Liberia, Sierra Leona y Guinea.</p>
-    </div>
-    <div class="carousel-item">
-      <img src="https://comunidadblogger.net/wp-content/uploads/2022/08/latin-and-african-american-friends-sharing-social-2022-01-24-22-40-48-utc-min.jpg" alt="Rebrotes COVID-19">
-      <p class="desc">Difusión de información en redes sociales En la difusión de información en redes sociales, se adaptó el modelo SIR para tratar la información o rumores como un “virus” que se propaga entre usuarios susceptibles, informados o “recuperados”, con el objetivo de analizar cómo un mensaje, noticia o meme puede volverse viral y planificar estrategias de marketing o control de fake news; investigaciones académicas lo han aplicado en plataformas como Twitter, TikTok y Facebook.</p>
-    </div>
-  </div>
 </section>
 
-<style>
-  .carousel-item img {
-    width: 100%;        /* que ocupe todo el ancho del contenedor */
-    height: 200px;      /* altura fija para todas las imágenes */
-    object-fit: cover;  /* recorta la imagen proporcionalmente para llenar el área */
-    border-radius: 5px; /* opcional, para bordes suaves */
-  }
+ <!-- SECCIÓN QUÉ HACEMOS -->
+        <section class="what-we-do">
+            <div class="section-header">
+                <h2>Qué hacemos..</h2>
+            </div>
+            
+            <div class="services-detailed">
+                <div class="service-detailed">
+                    <div class="service-detailed-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h3>Simulación de procesos dinámicos</h3>
+                        <p>Esta sección permite crear y visualizar simulaciones interactivas de procesos complejos, ayudando a entender cómo cambian diferentes variables en el tiempo.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detailed">
+                    <div class="service-detailed-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h3>Análisis de datos y resultados</h3>
+                        <p>Aquí puedes explorar gráficos y estadísticas generadas a partir de las simulaciones, facilitando la interpretación de patrones y tendencias importantes.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detailed">
+                    <div class="service-detailed-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h3>Visualización educativa</h3>
+                        <p>La página ofrece herramientas visuales que facilitan el aprendizaje, mostrando de manera clara cómo interactúan distintos elementos de un sistema.</p>
+                    </div>
+                </div>
+                
+                <div class="service-detailed">
+                    <div class="service-detailed-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h3>Difusión y documentación interactiva</h3>
+                        <p>Sección dedicada a mostrar ejemplos prácticos, con explicaciones y material interactivo que permite a los usuarios experimentar y comprender mejor los modelos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  .carousel-item .desc {
-    text-align: justify;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 9px;
-  }
-</style>
+    <!-- Modal / Lightbox para la infografía -->
+    <div id="infografiaModal" class="modal" aria-hidden="true">
+        <button id="closeInfografia" class="close">
+            <i class="ri-close-line"></i>
+        </button>
+        <img src="images/Infografía.png" alt="Infografía SIR">
+    </div>
 
-
-<!-- Fondo decorativo inferior -->
-<div class="fondo-inferior"></div>
-    <footer class="footer">
+    <!-- Fondo decorativo inferior -->
+    <div class="fondo-inferior"></div>
+    
+      <footer class="footer">
         <!-- IZQUIERDA -->
         <div class="footer-left">
             <img src="images/UMSA.png" alt="Logo UMSA" class="footer-logo">
